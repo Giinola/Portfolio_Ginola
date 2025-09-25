@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Ginola</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+
+/* ==== GLOBAL ==== */
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fdfdfd; 
+  margin: 0;
+  padding-top: 70px;
+  color: #333;
+}
+
+/* ==== NAVBAR ==== */
+nav.navbar {
+  background: #222;
+  padding: 12px 0;
+}
+nav .navbar-brand {
+  font-weight: 700;
+  color: #ff4a57 !important;
+}
+nav .nav-link {
+  color: #eee !important;
+  margin-left: 20px;
+  font-weight: 500;
+  position: relative;
+}
+nav .nav-link:hover {
+  color: #ff4a57 !important;
+}
+nav .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff4a57;
+  transition: width 0.3s;
+}
+nav .nav-link:hover::after {
+  width: 100%;
+}
+
+/* ==== HEADER ==== */
+header {
+  text-align: center;
+  padding: 120px 20px 150px 20px;
+  background: linear-gradient(135deg, #ff4a57, #c63b42);
+  color: white;
+  position: relative;
+}
+header h1 {
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+header p {
+  font-size: 1.2rem;
+}
+
+/* ==== PROFILE PIC ==== */
+.profile-pic {
+  position: absolute;
+  bottom: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.profile-pic img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 6px solid #ff4a57;
+  object-fit: cover;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+.profile-pic img:hover {
+  transform: scale(1.05);
+}
+
+/* ==== SECTION TITRES ==== */
+section h2.section-title {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 50px;
+  position: relative;
+}
+section h2.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ff4a57;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 992px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+  header p {
+    font-size: 1.1rem;
+  }
+  .profile-pic img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
+  .profile-pic img {
+    width: 120px;
+    height: 120px;
+  }
+  nav .nav-link {
+    margin-left: 10px;
+    font-size: 0.95rem;
+  }
+  section h2.section-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+  header p {
+    font-size: 0.95rem;
+  }
+  .profile-pic img {
+    width: 100px;
+    height: 100px;
+  }
+  section h2.section-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* À propos */
+/* ===== À propos ===== */
+#apropos p {
+  font-size: 17px;
+  line-height: 1.7;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: #222;
+  color: #ddd;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 120px 0 80px 0;
+}
+h2.section-title {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 50px;
+  position: relative;
+}
+h2.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ff4a57;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ===== Timeline Formation ===== */
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: #ff4a57;
+}
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff4a57;
+  border: 3px solid #fff;
+  z-index: 1;
+}
+.timeline-item.left::before { right: -12px; }
+.timeline-item.right::before { left: -12px; }
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; text-align: left; }
+.timeline-item h5 { color: #ff4a57; font-weight: 600; }
+.timeline-item span { font-size: 14px; color: #666; }
+
+/* ===== Expériences ===== */
+.experience-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+  height: 100%;
+}
+.experience-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.experience-card h5 { color: #ff4a57; font-weight: 600; }
+.experience-card span { font-size: 14px; color: #666; }
+
+/* ===== Veille Technologique ===== */
+#veille-technologique {
+  background: #fff;
+  padding: 60px 20px;
+}
+.intro-box {
+  background: #f1f1f1;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  transition: transform 0.3s;
+}
+.intro-box:hover { transform: translateY(-10px); }
+.intro-box p { font-size: 16px; line-height: 1.7; color: #555; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .timeline-item {
+    width: 100%;
+    padding: 15px 20px;
+    text-align: left !important;
+  }
+  #apropos p {
+    font-size: 16px;
+  }
+  .intro-box p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 80px 15px 60px 15px;
+  }
+  h2.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+  }
+  #apropos p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .intro-box p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  h2.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+  }
+  #apropos p, .intro-box p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .timeline::before {
+    left: 20px;
+  }
+  .timeline-item {
+    padding: 10px 15px;
+  }
+}
+
+    /* Platform Cards */
+    /* ===== Platform Cards / Projets / Compétences ===== */
+.platform-card, #projets .platform-card, #competences .card {
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.platform-card:hover, #projets .platform-card:hover, #competences .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.platform-card .card-body, #projets .card-body, #competences .card-body {
+  padding: 20px;
+}
+
+.platform-card h5, #projets h5, #competences h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.platform-card p, #projets p, #competences p {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.platform-card img, #projets img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.platform-card img:hover, #projets img:hover {
+  transform: scale(1.05);
+}
+
+/* Progress bars */
+.progress {
+  height: 18px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #e0e0e0;
+}
+.progress-bar {
+  height: 100%;
+  transition: width 1.5s ease-in-out;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: #ff4a57;
+}
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 20px;
+}
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; text-align: left; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff4a57;
+  border: 3px solid #fff;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .timeline-item {
+    width: 100% !important;
+    text-align: left !important;
+    padding: 15px 20px;
+  }
+  .timeline::before { left: 10px; }
+}
+
+@media (max-width: 768px) {
+  .platform-card .card-body, #projets .card-body, #competences .card-body {
+    padding: 15px;
+  }
+  .platform-card h5, #projets h5, #competences h5 {
+    font-size: 1rem;
+  }
+  .platform-card p, #projets p, #competences p {
+    font-size: 0.85rem;
+  }
+  #projets img, .platform-card img {
+    max-height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .platform-card h5, #projets h5, #competences h5 {
+    font-size: 0.95rem;
+  }
+  .platform-card p, #projets p, #competences p {
+    font-size: 0.8rem;
+  }
+  #projets img, .platform-card img {
+    max-height: 150px;
+  }
+}
+
+/* ===== Boutons Projets ===== */
+#projets .btn-outline-danger {
+  border-color: #ff4a57;
+  color: #ff4a57;
+  margin: 2px;
+}
+#projets .btn-outline-danger:hover {
+  background-color: #ff4a57;
+  color: white;
+}
+
+/* ===== Section Contact ===== */
+.contact-section {
+  padding: 80px 20px;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.contact-section .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.contact-section p {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+/* Liens et boutons de contact */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 25px;
+  background: #ff4a57;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.contact-btn:hover {
+  background: #c63b42;
+  transform: translateY(-3px);
+}
+
+/* Couleurs spécifiques aux réseaux sociaux */
+.contact-btn.linkedin {
+  background: #0077b5;
+}
+
+.contact-btn.linkedin:hover {
+  background: #005983;
+}
+
+.contact-btn.github {
+  background: #333;
+}
+
+.contact-btn.github:hover {
+  background: #000;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .contact-links {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  .contact-btn {
+    width: 70%;
+    justify-content: center;
+  }
+}
+
+</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const bars = document.querySelectorAll(".progress-bar");
+  function animateBars() {
+    bars.forEach(bar => {
+      const rect = bar.getBoundingClientRect();
+      if(rect.top < window.innerHeight && rect.bottom >= 0 && bar.dataset.width){
+        bar.style.width = bar.dataset.width;
+      }
+    });
+  }
+  window.addEventListener("scroll", animateBars);
+  animateBars(); // au chargement si déjà visible
+});
+</script>
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Ginola</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"> <!-- CSS externe -->
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Portfolio Ginola</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#apropos">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#formation">Formation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Expériences</a></li>
+          <li class="nav-item"><a class="nav-link" href="#veille-technologique">Veille Technologique</a></li>
+          <li class="nav-item"><a class="nav-link" href="#competences">Compétences</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projets">Projets</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header / Présentation -->
+  <header>
+    <h1>ANDRIANAMBININTSOA Ginola</h1>
+    <p>Étudiant en BTS SIO </p>
+    <div class="profile-pic">
+      <img src="C:\wamp64\www\Porftfolio code\Images\photo de profil.jpg" alt="Photo de profil">
+    </div>
+  </header>
+  
+
+  <!-- À propos -->
+  <section id="apropos" class="container">
+    <h2 class="section-title">À propos</h2>
+    <p>
+      Étudiant en première année BTS SIO, je développe progressivement mes compétences en programmation, développement web et gestion de bases de données. 
+      Grâce aux projets réalisés dans le cadre de ma formation et à mes recherches personnelles, j’apprends à transformer mes idées en solutions concrètes. 
+      Curieux et motivé, je cherche à enrichir mes connaissances et à mettre en pratique ce que j’acquiers au fil de mon parcours.
+    </p>
+  </section>
+  <!-- Formation -->
+  <section id="formation" class="container">
+    <h2 class="section-title">Formation</h2>
+    <div class="timeline">
+      <div class="timeline-item left">
+        <h5>2012 – 2022</h5>
+        <span>Saint Michel Amparibe, Madagascar</span>
+        <p>Parcours scolaire secondaire (collège & lycée)</p>
+      </div>
+      <div class="timeline-item right">
+        <h5>2024</h5>
+        <span>Saint Michel Amparibe, Madagascar</span>
+        <p>Baccalauréat catholique et général</p>
+      </div>
+      <div class="timeline-item left">
+        <h5>Septembre 2024 – Aujourd’hui</h5>
+        <span>MCCI Business School, Maurice</span>
+        <p>BTS SIO (Services Informatiques aux Organisations)</p>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="cv.pdf" class="btn btn-outline-dark">Télécharger mon CV complet</a>
+    </div>
+  </section>
+
+  <!-- Expériences -->
+  <section id="experience" class="container">
+    <h2 class="section-title">Expériences Professionnelles</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="experience-card">
+          <h5>Vendeur & Community Manager</h5>
+          <span>RAMPANANA | Juil – Sept 2024 / Fév 2025</span>
+          <p>- Accueil des clients<br>- Gestion des réseaux sociaux</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="experience-card">
+          <h5>Responsable de Caisse</h5>
+          <span>INTERMART Ébène | Fév – Avr 2025</span>
+          <p>- Scan des articles et produits<br>- Encaissement (carte, espèces, autres)</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="experience-card">
+          <h5>Hôtesse</h5>
+          <span>Panagora</span>
+          <p>- Pushing et vente de produits<br>- Dégustation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Veille Technologique -->
+ <!-- Veille Technologique -->
+<section id="veille-technologique" class="container">
+  <h2 class="section-title">Veille Technologique</h2>
+
+  <!-- Intro Box -->
+  <section id="veille-technologique" class="container">
+  <h2 class="section-title">Bases de données et gestion d’informations</h2>
+
+  <div class="intro-box">
+    <p>
+      Les bases de données sont au cœur des systèmes d’information modernes. Elles permettent de stocker, organiser et exploiter efficacement les données d’une organisation.
+    </p>
+    <p>
+      Ce thème explore les bonnes pratiques pour gérer les bases de données, la modélisation des données, l’optimisation des requêtes et la sécurisation des informations.
+    </p>
+  </div>
+
+
+  <div class="row g-4">
+  <!-- MySQL Blog -->
+  <div class="col-md-4">
+    <div class="platform-card github-card">
+      <div class="card-body">
+        <img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" alt="MySQL Logo">
+        <h5 class="card-title">MySQL Blog</h5>
+        <p class="card-text">Découvrez les nouveautés, mises à jour et astuces pour MySQL.</p>
+        <a href="https://mysqlserverteam.com/" target="_blank" class="btn btn-outline-danger">Visiter MySQL Blog</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Oracle Database Newsletter -->
+  <div class="col-md-4">
+    <div class="platform-card devto-card">
+      <div class="card-body">
+        <img src="https://www.oracle.com/a/ocom/img/cb71-oracle-logo.png" alt="Oracle Logo" style="max-height:80px;">
+        <h5 class="card-title">Oracle Database Newsletter</h5>
+        <p class="card-text">Recevez par email les dernières actualités, astuces et bonnes pratiques autour d’Oracle Database.</p>
+        <a href="https://www.oracle.com/database/newsletter.html" target="_blank" class="btn btn-outline-danger">S’inscrire à la Newsletter</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SQLServerCentral -->
+  <div class="col-md-4">
+    <div class="platform-card opensource-card">
+      <div class="card-body">
+        <img src="https://www.sqlservercentral.com/images/ssc_logo.svg" alt="SQLServerCentral Logo" style="max-height:80px;">
+        <h5 class="card-title">SQLServerCentral</h5>
+        <p class="card-text">Abonnez-vous aux newsletters pour recevoir les dernières astuces, tutoriels et actualités sur SQL Server et bases de données.</p>
+        <a href="https://www.sqlservercentral.com/newsletters" target="_blank" class="btn btn-outline-danger">S’abonner</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Conclusion -->
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <p>
+        Rester à jour sur les bases de données et leurs outils permet de concevoir des systèmes performants et sécurisés. 
+        En suivant ces plateformes et blogs, vous pouvez enrichir vos connaissances et améliorer vos compétences en gestion et exploitation de données.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="competences" class="container">
+  <h2 class="section-title">Compétences</h2>
+
+  <!-- Compétences Informatiques -->
+  <h3 class="mt-4">Compétences Informatiques</h3>
+  <div class="row g-3">
+    <div class="col-md-6">
+      <div class="card p-3">
+        <h5>HTML</h5>
+        <div class="progress">
+          <div class="progress-bar bg-danger" role="progressbar" data-animate="true" data-width="60%">60%</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card p-3">
+        <h5>CSS</h5>
+        <div class="progress">
+          <div class="progress-bar bg-primary" role="progressbar" data-animate="true" data-width="60%">60%</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card p-3">
+        <h5>PHP</h5>
+        <div class="progress">
+          <div class="progress-bar bg-warning" role="progressbar" data-animate="true" data-width="50%">50%</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card p-3">
+        <h5>MySQL</h5>
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" data-animate="true" data-width="40%">40%</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card p-3">
+        <h5>Java</h5>
+        <div class="progress">
+          <div class="progress-bar bg-info" role="progressbar" data-animate="true" data-width="50%">50%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modélisation -->
+  <h3 class="mt-5">Modélisation</h3>
+  <div class="row g-3">
+    <div class="col-md-3">
+      <div class="card p-3 text-center">
+        <h5>UML</h5>
+        <span class="badge bg-danger p-2">Intermédiaire</span>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card p-3 text-center">
+        <h5>Merise</h5>
+        <span class="badge bg-primary p-2">Intermédiaire</span>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card p-3 text-center">
+        <h5>Gantt</h5>
+        <span class="badge bg-warning p-2">Intermédiaire</span>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card p-3 text-center">
+        <h5>Trello</h5>
+        <span class="badge bg-success p-2">Intermédiaire</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compétences Linguistiques -->
+  <h3 class="mt-5">Compétences Linguistiques</h3>
+  <div class="row g-3">
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+        <h5>Français</h5>
+        <span class="badge bg-danger p-2">Courant</span>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+        <h5>Anglais</h5>
+        <span class="badge bg-primary p-2">Intermédiaire</span>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 text-center">
+        <h5>Malagasy</h5>
+        <span class="badge bg-success p-2">Courant</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Projets -->
+<section id="projets" class="container">
+  <h2 class="section-title">Projets</h2>
+
+  <!-- Projets en Formation -->
+  <h3 class="mt-4">Projets en Formation</h3>
+  <div class="row g-4">
+
+    <!-- Projet Supercar -->
+    <div class="col-md-6">
+      <div class="card platform-card">
+        <img src="C:\wamp64\www\Porftfolio code\Images\Supercar.png" alt="Projet Supercar Image">
+        <div class="card-body text-center">
+          <h5 class="card-title">Projet Supercar</h5>
+          <p class="card-text">Projet pratique pour appliquer les concepts appris en formation, incluant les parties admin et client, et une présentation globale.</p>
+          <div class="d-flex justify-content-around mt-3 flex-wrap">
+            <a href="#" class="btn btn-outline-danger mb-2">Contexte</a>
+            <a href="#" class="btn btn-outline-danger mb-2">Partie Admin</a>
+            <a href="#" class="btn btn-outline-danger mb-2">Partie Client</a>
+            <a href="#" class="btn btn-outline-danger mb-2">Présentation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projet VMS -->
+    <div class="col-md-6">
+      <div class="card platform-card">
+        <img src="vms.png" alt="Projet VMS Image">
+        <div class="card-body text-center">
+          <h5 class="card-title">Projet VMS</h5>
+          <p class="card-text">Projet développé durant la formation pour la gestion de systèmes et processus.</p>
+          <div class="mt-3">
+            <a href="#" class="btn btn-outline-danger">Projet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Projets en Stage -->
+  <h3 class="mt-5">Projets en Stage</h3>
+  <div class="row g-4">
+
+    <!-- Stage AMP -->
+    <div class="col-md-6">
+      <div class="card platform-card">
+        <img src="stage_amp.png" alt="Projet Stage AMP">
+        <div class="card-body text-center">
+          <h5 class="card-title">Stage AMP</h5>
+          <p class="card-text">Projet réalisé durant le stage chez AMP pour appliquer des compétences professionnelles.</p>
+          <div class="mt-3">
+            <a href="#" class="btn btn-outline-danger">Projet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Autre projet stage -->
+    <div class="col-md-6">
+      <div class="card platform-card">
+        <img src="projet_stage.png" alt="Autre projet Stage">
+        <div class="card-body text-center">
+          <h5 class="card-title">Projet Stage</h5>
+          <p class="card-text">Projet en cours de détermination pour le stage.</p>
+          <div class="mt-3">
+            <a href="#" class="btn btn-outline-danger">Projet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section id="contact" class="contact-section">
+  <div class="container text-center">
+    <h2 class="section-title">Contact</h2>
+    <p>Vous pouvez me joindre directement par email ou via mes réseaux sociaux :</p>
+    <div class="contact-links">
+      <a href="manjakaginola@gmail.com" class="contact-btn">
+        <i class="fas fa-envelope"></i> Email
+      </a>
+      <a href="https://www.linkedin.com/in/tonprofil" target="_blank" class="contact-btn linkedin">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/tonprofil" target="_blank" class="contact-btn github">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Ginola - Portfolio BTS SIO</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
