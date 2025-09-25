@@ -118,8 +118,13 @@ section h2.section-title::after {
     width: 150px;
     height: 150px;
   }
+  nav .nav-link {
+    font-size: 0.95rem;
+    margin-left: 10px;
+  }
 }
 
+/* Pour les écrans de moins de 768px (petites tablettes) */
 @media (max-width: 768px) {
   header h1 {
     font-size: 2rem;
@@ -132,14 +137,15 @@ section h2.section-title::after {
     height: 120px;
   }
   nav .nav-link {
-    margin-left: 10px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
   section h2.section-title {
     font-size: 1.8rem;
+    margin-bottom: 35px;
   }
 }
 
+/* Pour les écrans de moins de 480px (mobiles) */
 @media (max-width: 480px) {
   header h1 {
     font-size: 1.6rem;
@@ -154,8 +160,10 @@ section h2.section-title::after {
   section h2.section-title {
     font-size: 1.5rem;
   }
+  nav .nav-link {
+    font-size: 0.85rem;
+  }
 }
-
 /* À propos */
 #apropos p {
   font-size: 17px;
@@ -253,54 +261,87 @@ section {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
-  .timeline-item {
-    width: 100%;
-    padding: 15px 20px;
-    text-align: left !important;
-  }
   #apropos p {
     font-size: 16px;
+    line-height: 1.6;
+    max-width: 90%;
   }
-  .intro-box p {
-    font-size: 15px;
+  footer {
+    padding: 15px;
+  }
+  section {
+    padding: 100px 0 60px 0;
+  }
+  .timeline-item {
+    padding: 15px 25px;
+  }
+  .timeline-item h5 {
+    font-size: 1rem;
+  }
+  .timeline-item span {
+    font-size: 12px;
+  }
+  .experience-card {
+    padding: 20px;
   }
 }
 
+/* Pour les écrans de moins de 768px (petites tablettes) */
 @media (max-width: 768px) {
-  section {
-    padding: 80px 15px 60px 15px;
-  }
-  h2.section-title {
-    font-size: 1.8rem;
-    margin-bottom: 35px;
-  }
   #apropos p {
     font-size: 15px;
-    line-height: 1.6;
-  }
-  .intro-box p {
-    font-size: 14px;
     line-height: 1.5;
+    max-width: 95%;
+  }
+  footer {
+    padding: 10px;
+  }
+  section {
+    padding: 80px 15px 50px 15px;
+  }
+  .timeline {
+    max-width: 100%;
+  }
+  .timeline-item {
+    padding: 15px 20px;
+  }
+  .experience-card {
+    padding: 18px;
+  }
+  .timeline-item h5 {
+    font-size: 0.95rem;
+  }
+  .timeline-item span {
+    font-size: 12px;
   }
 }
 
+/* Pour les écrans de moins de 480px (mobiles) */
 @media (max-width: 480px) {
-  h2.section-title {
-    font-size: 1.5rem;
-    margin-bottom: 25px;
-  }
-  #apropos p, .intro-box p {
-    font-size: 13px;
+  #apropos p {
+    font-size: 14px;
     line-height: 1.4;
+    max-width: 100%;
   }
-  .timeline::before {
-    left: 20px;
+  footer {
+    padding: 8px;
+  }
+  section {
+    padding: 60px 10px 40px 10px;
   }
   .timeline-item {
     padding: 10px 15px;
   }
+  .experience-card {
+    padding: 15px;
+  }
+  .timeline-item h5 {
+    font-size: 0.9rem;
+  }
+  .timeline-item span {
+    font-size: 11px;
+  }
 }
-
 .platform-card, #projets .platform-card, #competences .card {
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -390,43 +431,104 @@ section {
   z-index: 1;
 }
 
-/* Responsive */
+/* Pour les écrans de moins de 992px (tablettes) */
 @media (max-width: 992px) {
-  .timeline-item {
-    width: 100% !important;
-    text-align: left !important;
-    padding: 15px 20px;
+  .platform-card, #projets .platform-card, #competences .card {
+    margin-bottom: 15px;
   }
-  .timeline::before { left: 10px; }
-}
 
-@media (max-width: 768px) {
-  .platform-card .card-body, #projets .card-body, #competences .card-body {
-    padding: 15px;
-  }
   .platform-card h5, #projets h5, #competences h5 {
     font-size: 1rem;
   }
+
   .platform-card p, #projets p, #competences p {
     font-size: 0.85rem;
   }
-  #projets img, .platform-card img {
+
+  .platform-card img, #projets img {
     max-height: 180px;
+  }
+
+  .timeline-item {
+    padding: 15px 15px;
+  }
+
+  .timeline-item h5 {
+    font-size: 1rem;
+  }
+
+  .timeline-item span {
+    font-size: 13px;
   }
 }
 
-@media (max-width: 480px) {
+/* Pour les écrans de moins de 768px (petites tablettes) */
+@media (max-width: 768px) {
+  .platform-card, #projets .platform-card, #competences .card {
+    margin-bottom: 12px;
+  }
+
   .platform-card h5, #projets h5, #competences h5 {
     font-size: 0.95rem;
   }
+
   .platform-card p, #projets p, #competences p {
     font-size: 0.8rem;
   }
-  #projets img, .platform-card img {
+
+  .platform-card img, #projets img {
     max-height: 150px;
+  }
+
+  .timeline {
+    max-width: 100%;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .timeline-item h5 {
+    font-size: 0.95rem;
+  }
+
+  .timeline-item span {
+    font-size: 12px;
   }
 }
 
+/* Pour les écrans de moins de 480px (mobiles) */
+@media (max-width: 480px) {
+  .platform-card, #projets .platform-card, #competences .card {
+    margin-bottom: 10px;
+  }
+
+  .platform-card h5, #projets h5, #competences h5 {
+    font-size: 0.9rem;
+  }
+
+  .platform-card p, #projets p, #competences p {
+    font-size: 0.75rem;
+  }
+
+  .platform-card img, #projets img {
+    max-height: 130px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .timeline-item h5 {
+    font-size: 0.9rem;
+  }
+
+  .timeline-item span {
+    font-size: 11px;
+  }
+}
 /* ===== Boutons Projets ===== */
 #projets .btn-outline-danger {
   border-color: #ff4a57;
@@ -501,16 +603,63 @@ section {
   background: #000;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .contact-links {
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
+@media (max-width: 992px) {
+  .contact-section .section-title {
+    font-size: 2rem;
   }
+
+  .contact-section p {
+    font-size: 1rem;
+  }
+
   .contact-btn {
-    width: 70%;
-    justify-content: center;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .contact-links {
+    gap: 15px;
+  }
+}
+
+/* Pour les écrans de moins de 768px (petites tablettes) */
+@media (max-width: 768px) {
+  .contact-section .section-title {
+    font-size: 1.8rem;
+  }
+
+  .contact-section p {
+    font-size: 0.95rem;
+  }
+
+  .contact-btn {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+
+  .contact-links {
+    gap: 10px;
+  }
+}
+
+/* Pour les écrans de moins de 480px (mobiles) */
+@media (max-width: 480px) {
+  .contact-section .section-title {
+    font-size: 1.6rem;
+  }
+
+  .contact-section p {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+  }
+
+  .contact-btn {
+    padding: 8px 15px;
+    font-size: 0.8rem;
+  }
+
+  .contact-links {
+    gap: 8px;
   }
 }
 
