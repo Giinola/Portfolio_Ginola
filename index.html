@@ -921,6 +921,12 @@
       border-color: var(--gold);
     }
 
+    .proj-link--disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
     /* ===== CONTACT ===== */
     #contact {
       background: var(--paper);
@@ -1024,8 +1030,14 @@
     }
 
     /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .exp-grid { grid-template-columns: repeat(2, 1fr); }
+      .veille-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+
     @media (max-width: 900px) {
-      nav { padding: 0 24px; }
+      nav { padding: 0 20px; }
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
       .nav-links.open {
@@ -1033,25 +1045,55 @@
         flex-direction: column;
         position: absolute;
         top: 68px; left: 0; right: 0;
-        background: var(--ink);
-        padding: 24px;
-        gap: 20px;
+        background: rgba(13,13,13,0.98);
+        backdrop-filter: blur(20px);
+        padding: 28px 24px;
+        gap: 24px;
         border-top: 1px solid rgba(201,168,76,0.1);
       }
-      .hero-content { grid-template-columns: 1fr; padding: 120px 32px 80px; }
+      .nav-links.open a { font-size: 1rem; }
+      .hero-content { grid-template-columns: 1fr; padding: 120px 28px 80px; }
       .hero-profile { display: none; }
+      .hero-text h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .exp-grid { grid-template-columns: 1fr; }
       .veille-grid { grid-template-columns: 1fr; }
       .skills-layout { grid-template-columns: 1fr; gap: 40px; }
       .proj-grid { grid-template-columns: 1fr; }
-      .container { padding: 0 24px; }
-      footer { padding: 24px; justify-content: center; text-align: center; }
+      .container { padding: 0 20px; }
+      section { padding: 72px 0; }
+      .section-header { margin-bottom: 44px; }
+      .veille-intro { padding: 32px 24px; }
+      footer { padding: 24px 20px; justify-content: center; text-align: center; }
+      .contact-links { flex-direction: column; align-items: center; }
+      .contact-link { width: 100%; max-width: 320px; justify-content: center; }
     }
 
     @media (max-width: 600px) {
+      .hero-content { padding: 110px 16px 72px; }
+      .container { padding: 0 16px; }
       .about-stats { grid-template-columns: 1fr 1fr; }
+      .about-stats .stat-item { padding: 20px 16px; }
       .lang-row { grid-template-columns: repeat(3, 1fr); }
+      .badge-grid { grid-template-columns: 1fr 1fr; }
+      .exp-grid { grid-template-columns: 1fr; }
+      .veille-grid { grid-template-columns: 1fr; }
+      .hero-cta { flex-direction: column; gap: 12px; }
+      .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+      .section-title { font-size: 1.6rem; }
+      .proj-links { gap: 8px; }
+      .proj-link { font-size: 0.74rem; padding: 7px 11px; }
+      .tl-item { padding: 0 0 44px 36px; }
+      .tl-title { font-size: 1rem; }
+      .veille-intro { padding: 24px 18px; }
+      .hero-scroll { display: none; }
+      footer { flex-direction: column; gap: 8px; }
+    }
+
+    @media (max-width: 400px) {
+      .lang-row { grid-template-columns: 1fr 1fr; }
+      .badge-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr; }
     }
 
     /* ===== ANIMATIONS ===== */
@@ -1381,12 +1423,14 @@
           </div>
         </div>
         <div class="proj-card reveal">
-          <div class="proj-img-placeholder"><i class="fas fa-briefcase"></i></div>
+          <img src="Images/FDB.webp" alt="Au Feu de Bois" class="proj-img">
           <div class="proj-body">
-            <h5>Projet Stage 2</h5>
-            <p>Projet en cours de détermination pour le prochain stage. À venir prochainement.</p>
+            <h5>Stage Au Feu de Bois</h5>
+            <p>Développement d'un logiciel de gestion de stock pour le restaurant Au Feu de Bois — suivi des entrées/sorties, alertes de rupture et tableau de bord.</p>
             <div class="proj-links">
-              <a href="#" class="proj-link"><i class="fas fa-clock fa-xs"></i> À venir</a>
+              <a href="https://github.com/Giinola/Stock_FDB.git" target="_blank" class="proj-link"><i class="fab fa-github fa-xs"></i> GitHub</a>
+              <a href="#" class="proj-link proj-link--disabled"><i class="fas fa-desktop fa-xs"></i> Présentation</a>
+              <a href="#" class="proj-link proj-link--disabled"><i class="fas fa-file-alt fa-xs"></i> Rapport</a>
             </div>
           </div>
         </div>
@@ -1405,8 +1449,8 @@
       <div class="contact-inner">
         <p class="reveal">Disponible pour des opportunités de stage ou de collaboration. N'hésitez pas à me contacter directement par email ou via mes réseaux professionnels.</p>
         <div class="contact-links reveal">
-          <a href="mailto:manjakaginola@gmail.com" class="contact-link email">
-            <i class="fas fa-envelope"></i> manjakaginola@gmail.com
+          <a href="/cdn-cgi/l/email-protection#f69b97989c979d97919f98999a97b6919b979f9ad895999b" class="contact-link email">
+            <i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="264b47484c474d47414f48494a4766414b474f4a0845494b">[email&#160;protected]</span>
           </a>
           <a href="https://www.linkedin.com/in/tonprofil" target="_blank" class="contact-link linkedin">
             <i class="fab fa-linkedin"></i> LinkedIn
@@ -1426,7 +1470,7 @@
     <p style="font-size:0.75rem; color:rgba(255,255,255,0.2);">Maurice</p>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Nav toggle
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
@@ -1455,12 +1499,8 @@
           }
           barObserver.unobserve(e.target);
         }
-      });
-    }, { threshold: 0.3 });
-
-    document.querySelectorAll('.skill-row').forEach(el => barObserver.observe(el));
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+      
+          });
+        });
+    
+      </script>
