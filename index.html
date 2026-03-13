@@ -1398,12 +1398,14 @@
           </div>
         </div>
         <div class="proj-card reveal">
-          <div class="proj-img-placeholder"><i class="fas fa-code"></i></div>
+          <img src="Images/vms.png" alt="Voucher Manager System" class="proj-img">
           <div class="proj-body">
-            <h5>Projet VMS</h5>
-            <p>Projet développé durant la formation pour la gestion de systèmes et de processus organisationnels.</p>
+            <h5>VMS — Voucher Manager System</h5>
+            <p>Système de génération de vouchers pour un magasin — création, gestion et suivi des bons de réduction en temps réel.</p>
             <div class="proj-links">
-              <a href="#" class="proj-link"><i class="fas fa-external-link-alt fa-xs"></i> Voir le projet</a>
+              <a href="Documents/Contexte RP2 - projet VMS.pdf" class="proj-link"><i class="fas fa-file-alt fa-xs"></i> Contexte</a>
+              <a href="https://github.com/diary-dev1/VMS.git" target="_blank" class="proj-link"><i class="fab fa-github fa-xs"></i> GitHub</a>
+              <a href="#" class="proj-link proj-link--disabled"><i class="fas fa-desktop fa-xs"></i> Présentation</a>
             </div>
           </div>
         </div>
@@ -1423,7 +1425,7 @@
           </div>
         </div>
         <div class="proj-card reveal">
-          <img src="Images/FDB.webp" alt="Au Feu de Bois" class="proj-img">
+          <img src="Images/FDB.png" alt="Au Feu de Bois" class="proj-img">
           <div class="proj-body">
             <h5>Stage Au Feu de Bois</h5>
             <p>Développement d'un logiciel de gestion de stock pour le restaurant Au Feu de Bois — suivi des entrées/sorties, alertes de rupture et tableau de bord.</p>
@@ -1489,18 +1491,20 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Progress bars
-    const barObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const fill = e.target.querySelector('.progress-fill');
-          if (fill && fill.dataset.width) {
-            setTimeout(() => fill.style.width = fill.dataset.width, 200);
-          }
-          barObserver.unobserve(e.target);
-        }
-      
+        // Progress bars
+        const barObserver = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              const fill = e.target.querySelector('.progress-fill');
+              if (fill && fill.dataset.width) {
+                setTimeout(() => fill.style.width = fill.dataset.width, 200);
+              }
+              barObserver.unobserve(e.target);
+            }
           });
-        });
+        }, { threshold: 0.1 });
     
+        document.querySelectorAll('.skill-row').forEach(el => barObserver.observe(el));
       </script>
+    </body>
+    </html>
